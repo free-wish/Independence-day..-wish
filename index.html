@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Independence Day 🇮🇳</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:Georgia,"Times New Roman",serif;
+    background:#02060d;
+    color:white;
+}
+
+#app{
+    width:100%;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+}
+
+/* =========================
+   STAGES
+========================= */
+
+.stage{
+    position:absolute;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+    overflow:hidden;
+}
+
+.stage.active{
+    display:flex;
+    animation:showStage .8s ease;
+}
+
+@keyframes showStage{
+    from{
+        opacity:0;
+        transform:scale(1.04);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:100;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+}
+
+.progress-line{
+    position:absolute;
+    width:2px;
+    height:250px;
+    background:rgba(255,255,255,.3);
+    z-index:-1;
+}
+
+.progress-number{
+    width:30px;
+    height:30px;
+    border:2px solid rgba(255,255,255,.7);
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial,sans-serif;
+    font-size:13px;
+    background:#08111c;
+    transition:.4s;
+}
+
+.progress-number.active{
+    width:38px;
+    height:38px;
+    color:white;
+    background:#ff7b00;
+    border-color:#ffb000;
+    box-shadow:
+        0 0 12px #ff7b00,
+        0 0 25px rgba(255,123,0,.7);
+}
+
+
+/* =========================
+   NEXT BUTTON
+========================= */
+
+.next-button{
+    position:absolute;
+    right:25px;
+    bottom:25px;
+    z-index:200;
+
+    min-width:170px;
+    height:58px;
+
+    border:none;
+    border-radius:35px;
+
+    color:white;
+    background:#ff7800;
+
+    font-family:Arial,sans-serif;
+    font-size:20px;
+    font-weight:900;
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 0 3px rgba(255,255,255,.3),
+        0 0 20px rgba(255,120,0,.9),
+        0 8px 25px rgba(0,0,0,.5);
+
+    transition:.25s;
+
+    animation:buttonPulse 2s infinite;
+}
+
+.next-button:hover{
+    transform:scale(1.08);
+}
+
+.next-button:active{
+    transform:scale(.94);
+}
+
+@keyframes buttonPulse{
+    0%,100%{
+        box-shadow:
+            0 0 0 3px rgba(255,255,255,.3),
+            0 0 20px rgba(255,120,0,.8),
+            0 8px 25px rgba(0,0,0,.5);
+    }
+
+    50%{
+        box-shadow:
+            0 0 0 4px rgba(255,255,255,.5),
+            0 0 35px rgba(255,150,0,1),
+            0 8px 25px rgba(0,0,0,.5);
+    }
+}
+
+
+/* =========================
+   STAGE 1
+========================= */
+
+#stage1{
+    background:
+        radial-gradient(
+            circle at 72% 45%,
+            #ffb347,
+            #b6490c 18%,
+            #102031 55%,
+            #02060d 100%
+        );
+}
+
+.sun{
+    position:absolute;
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    background:#ffbd55;
+    right:18%;
+    top:38%;
+    box-shadow:
+        0 0 40px #ff9933,
+        0 0 100px #ff7b00;
+    opacity:.9;
+}
+
+.ground{
+    position:absolute;
+    bottom:-150px;
+    width:120%;
+    height:300px;
+    background:#020508;
+    border-radius:50% 50% 0 0;
+}
+
+.flag{
+    position:absolute;
+    width:min(500px,55vw);
+    right:5%;
+    top:14%;
+    transform-origin:left center;
+    animation:flagWave 4s ease-in-out infinite;
+    filter:drop-shadow(0 15px 15px rgba(0,0,0,.5));
+}
+
+@keyframes flagWave{
+    0%,100%{
+        transform:rotate(-2deg) skewY(1deg);
+    }
+    50%{
+        transform:rotate(2deg) skewY(-1deg);
+    }
+}
+
+.flag-stripe{
+    height:58px;
+}
+
+.saffron{
+    background:#ff9933;
+    border-radius:8px 8px 0 0;
+}
+
+.white{
+    background:white;
+    position:relative;
+}
+
+.green{
+    background:#138808;
+    border-radius:0 0 8px 8px;
+}
+
+
+/* =========================
+   COMPLETE ASHOKA CHAKRA
+========================= */
+
+.chakra{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:50px;
+    height:50px;
+    transform:translate(-50%,-50%);
+    border:3px solid #000080;
+    border-radius:50%;
+}
+
+.chakra-center{
+    position:absolute;
+    width:11px;
+    height:11px;
+    background:#000080;
+    border-radius:50%;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+
+.spoke{
+    position:absolute;
+    width:2px;
+    height:22px;
+    background:#000080;
+    left:50%;
+    top:50%;
+    transform-origin:50% 100%;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    position:absolute;
+    left:7%;
+    top:25%;
+    text-align:left;
+    z-index:5;
+}
+
+.hero-small{
+    font-size:clamp(32px,6vw,60px);
+    font-style:italic;
+    color:#ff9933;
+}
+
+.hero h1{
+    font-family:Arial,sans-serif;
+    font-size:clamp(40px,8vw,85px);
+    line-height:.95;
+    font-weight:900;
+    letter-spacing:-3px;
+
+    background:linear-gradient(
+        90deg,
+        #ff9933 0%,
+        white 48%,
+        #138808 100%
+    );
+
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    margin-top:20px;
+    font-family:Arial,sans-serif;
+    font-size:20px;
+}
+
+
+/* =========================
+   STAGE 2
+========================= */
+
+#stage2{
+    background:
+        linear-gradient(
+            120deg,
+            #ff9933,
+            white 45%,
+            #138808
+        );
+    color:#10213a;
+}
+
+.paint{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(70px);
+    opacity:.25;
+}
+
+.paint1{
+    width:400px;
+    height:400px;
+    background:#ff9933;
+    left:-150px;
+    top:-100px;
+}
+
+.paint2{
+    width:450px;
+    height:450px;
+    background:#138808;
+    right:-160px;
+    bottom:-120px;
+}
+
+.stage2-text{
+    position:absolute;
+    left:9%;
+    top:22%;
+    text-align:left;
+    width:42%;
+    z-index:5;
+}
+
+.stage2-text h1{
+    font-size:clamp(38px,6vw,70px);
+    line-height:1.05;
+}
+
+.stage2-text p{
+    margin-top:25px;
+    font-size:21px;
+    line-height:1.5;
+    font-weight:bold;
+}
+
+.orange{
+    color:#e85d04;
+}
+
+.navy{
+    color:#063b8c;
+}
+
+.green-text{
+    color:#176b2c;
+}
+
+
+/* BIG COMPLETE CHAKRA */
+
+.big-chakra{
+    position:absolute;
+    right:13%;
+    top:50%;
+    width:245px;
+    height:245px;
+    transform:translateY(-50%);
+    border:12px solid #06449b;
+    border-radius:50%;
+    background:white;
+    box-shadow:
+        0 0 0 5px rgba(255,255,255,.8),
+        0 0 35px rgba(0,40,150,.45);
+    animation:chakraRotate 18s linear infinite;
+}
+
+@keyframes chakraRotate{
+    to{
+        transform:translateY(-50%) rotate(360deg);
+    }
+}
+
+.big-chakra .ring{
+    position:absolute;
+    inset:15px;
+    border:3px solid #06449b;
+    border-radius:50%;
+}
+
+.big-spoke{
+    position:absolute;
+    width:4px;
+    height:105px;
+    background:#06449b;
+    left:50%;
+    top:50%;
+    transform-origin:50% 100%;
+    border-radius:4px;
+}
+
+.big-center{
+    position:absolute;
+    width:35px;
+    height:35px;
+    background:#06449b;
+    border-radius:50%;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 0 5px white;
+}
+
+
+/* =========================
+   STAGE 3
+========================= */
+
+#stage3{
+    background:
+        radial-gradient(
+            circle at 35% 50%,
+            #153250,
+            #020914 70%
+        );
+}
+
+.monument{
+    position:absolute;
+    left:5%;
+    bottom:0;
+    width:48%;
+    height:55%;
+    opacity:.8;
+}
+
+.gate{
+    position:absolute;
+    left:25%;
+    bottom:0;
+    width:45%;
+    height:80%;
+    border:4px solid #d99a39;
+    border-bottom:none;
+}
+
+.gate:before{
+    content:"";
+    position:absolute;
+    width:60%;
+    height:55%;
+    left:20%;
+    bottom:0;
+    border:4px solid #d99a39;
+    border-bottom:none;
+    border-radius:50% 50% 0 0;
+}
+
+.gate-top{
+    position:absolute;
+    left:-20%;
+    top:0;
+    width:140%;
+    height:20px;
+    background:#d99a39;
+}
+
+.message{
+    position:absolute;
+    right:7%;
+    top:18%;
+    width:43%;
+    text-align:left;
+}
+
+.message h1{
+    color:#ff9933;
+    font-size:clamp(32px,6vw,60px);
+    font-style:italic;
+}
+
+.message p{
+    margin-top:25px;
+    font-size:19px;
+    line-height:1.8;
+}
+
+.message-item{
+    margin-bottom:14px;
+}
+
+
+/* =========================
+   STAGE 4
+========================= */
+
+#stage4{
+    background:#02060d;
+}
+
+#fireworks{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+}
+
+.freedom{
+    position:relative;
+    z-index:5;
+}
+
+.freedom small{
+    font-family:Arial,sans-serif;
+    letter-spacing:6px;
+    font-size:18px;
+}
+
+.freedom h1{
+    font-family:Arial,sans-serif;
+    font-size:clamp(55px,12vw,120px);
+    font-weight:900;
+    margin-top:10px;
+
+    background:linear-gradient(
+        90deg,
+        #ff9933,
+        white,
+        #138808
+    );
+
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.freedom p{
+    margin-top:15px;
+    font-size:22px;
+}
+
+
+/* =========================
+   STAGE 5
+========================= */
+
+#stage5{
+    background:
+        linear-gradient(
+            120deg,
+            #ff9933,
+            white 48%,
+            #138808
+        );
+    color:#14243b;
+}
+
+.final{
+    width:90%;
+    max-width:750px;
+}
+
+.final-heart{
+    font-size:40px;
+    color:#ff6a00;
+}
+
+.final h1{
+    margin-top:10px;
+    font-size:clamp(42px,9vw,80px);
+    color:#e85d04;
+    font-style:italic;
+}
+
+.final h2{
+    font-size:clamp(30px,7vw,60px);
+    color:#176b2c;
+    font-style:italic;
+}
+
+.final-friend{
+    margin-top:10px;
+    font-size:clamp(27px,6vw,45px);
+    color:#063b8c;
+}
+
+.final p{
+    max-width:650px;
+    margin:28px auto;
+    font-size:19px;
+    line-height:1.8;
+}
+
+.jai{
+    font-size:26px;
+    font-weight:bold;
+    color:#063b8c;
+}
+
+
+/* =========================
+   FALLING LEAVES
+========================= */
+
+.leaf{
+    position:absolute;
+    width:10px;
+    height:18px;
+    border-radius:100% 0;
+    opacity:.7;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-100px) rotate(0);
+    }
+    to{
+        transform:translateY(110vh) rotate(500deg);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .progress{
+        left:8px;
+        gap:8px;
+    }
+
+    .progress-line{
+        height:200px;
+    }
+
+    .progress-number{
+        width:25px;
+        height:25px;
+        font-size:11px;
+    }
+
+    .progress-number.active{
+        width:32px;
+        height:32px;
+    }
+
+    .next-button{
+        right:15px;
+        bottom:18px;
+        min-width:155px;
+        height:56px;
+        font-size:19px;
+    }
+
+    .flag{
+        width:70%;
+        right:3%;
+        top:12%;
+    }
+
+    .flag-stripe{
+        height:42px;
+    }
+
+    .chakra{
+        width:42px;
+        height:42px;
+    }
+
+    .chakra .spoke{
+        height:18px;
+    }
+
+    .hero{
+        left:12%;
+        top:38%;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero-small{
+        font-size:35px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .stage2-text{
+        left:12%;
+        top:20%;
+        width:70%;
+    }
+
+    .stage2-text h1{
+        font-size:39px;
+    }
+
+    .stage2-text p{
+        font-size:16px;
+    }
+
+    .big-chakra{
+        width:155px;
+        height:155px;
+        right:3%;
+        top:62%;
+        border-width:8px;
+    }
+
+    .big-chakra .ring{
+        inset:10px;
+    }
+
+    .big-spoke{
+        height:68px;
+        width:3px;
+    }
+
+    .big-center{
+        width:25px;
+        height:25px;
+    }
+
+    .monument{
+        width:100%;
+        height:32%;
+        opacity:.4;
+    }
+
+    .message{
+        width:78%;
+        right:8%;
+        top:16%;
+    }
+
+    .message h1{
+        font-size:37px;
+    }
+
+    .message p{
+        font-size:16px;
+        line-height:1.55;
+    }
+
+    .freedom h1{
+        font-size:58px;
+    }
+
+    .freedom p{
+        font-size:17px;
+    }
+
+    .final{
+        width:82%;
+    }
+
+    .final p{
+        font-size:16px;
+        line-height:1.6;
+    }
+
+}
+</style>
+</head>
+
+
+<body>
+
+<div id="app">
+
+
+<!-- ==========================
+     PROGRESS
+=========================== -->
+
+<div class="progress">
+
+    <div class="progress-line"></div>
+
+    <div class="progress-number active">1</div>
+    <div class="progress-number">2</div>
+    <div class="progress-number">3</div>
+    <div class="progress-number">4</div>
+    <div class="progress-number">5</div>
+
+</div>
+
+
+<!-- =====================================================
+     STAGE 1
+====================================================== -->
+
+<section class="stage active" id="stage1">
+
+    <div class="sun"></div>
+    <div class="ground"></div>
+
+    <!-- FLAG -->
+
+    <div class="flag">
+
+        <div class="flag-stripe saffron"></div>
+
+        <div class="flag-stripe white">
+
+            <!-- COMPLETE 24-SPOKE CHAKRA -->
+
+            <div class="chakra" id="smallChakra">
+
+                <div class="chakra-center"></div>
+
+            </div>
+
+        </div>
+
+        <div class="flag-stripe green"></div>
+
+    </div>
+
+
+    <div class="hero">
+
+        <div class="hero-small">
+            Happy
+        </div>
+
+        <h1>
+            INDEPENDENCE<br>
+            DAY!
+        </h1>
+
+        <p>
+            ── Proud to celebrate the spirit of India ──
+        </p>
+
+    </div>
+
+
+    <button class="next-button" onclick="nextStage()">
+        NEXT&nbsp;&nbsp;➜
+    </button>
+
+</section>
+
+
+
+<!-- =====================================================
+     STAGE 2
+====================================================== -->
+
+<section class="stage" id="stage2">
+
+    <div class="paint paint1"></div>
+    <div class="paint paint2"></div>
+
+
+    <div class="stage2-text">
+
+        <h1>
+
+            <span class="orange">
+                Freedom
+            </span>
+            is<br>
+
+            <span class="navy">
+                in our Heart,
+            </span>
+
+            <br>
+
+            Pride is<br>
+
+            <span class="green-text">
+                in our Soul.
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            Freedom is the gift of courage,
+            unity and countless sacrifices.
+
+            <br><br>
+
+            Let us celebrate the spirit
+            that lives in every Indian heart. 🇮🇳
+
+        </p>
+
+    </div>
+
+
+    <!-- COMPLETE LARGE ASHOKA CHAKRA -->
+
+    <div class="big-chakra" id="bigChakra">
+
+        <div class="ring"></div>
+
+        <div class="big-center"></div>
+
+    </div>
+
+
+    <button class="next-button" onclick="nextStage()">
+        NEXT&nbsp;&nbsp;➜
+    </button>
+
+</section>
+
+
+
+<!-- =====================================================
+     STAGE 3
+====================================================== -->
+
+<section class="stage" id="stage3">
+
+
+    <div class="monument">
+
+        <div class="gate">
+
+            <div class="gate-top"></div>
+
+        </div>
+
+    </div>
+
+
+    <div class="message">
+
+        <h1>
+            To my friend ❤️
+        </h1>
+
+
+        <p>
+
+            <div class="message-item">
+                🧡 May you always have the freedom
+                to dream big and the courage
+                to achieve them.
+            </div>
+
+            <div class="message-item">
+                🤍 May happiness, success and peace
+                always stay with you.
+            </div>
+
+            <div class="message-item">
+                💚 Keep smiling, keep shining,
+                and never stop believing in yourself.
+            </div>
+
+        </p>
+
+    </div>
+
+
+    <button class="next-button" onclick="nextStage()">
+        NEXT&nbsp;&nbsp;➜
+    </button>
+
+</section>
+
+
+
+<!-- =====================================================
+     STAGE 4
+====================================================== -->
+
+<section class="stage" id="stage4">
+
+
+    <canvas id="fireworks"></canvas>
+
+
+    <div class="freedom">
+
+        <small>
+            LET'S CELEBRATE
+        </small>
+
+        <h1>
+            FREEDOM!
+        </h1>
+
+        <p>
+            One Nation • One Vision • One Identity
+        </p>
+
+    </div>
+
+
+    <button class="next-button" onclick="nextStage()">
+        NEXT&nbsp;&nbsp;➜
+    </button>
+
+</section>
+
+
+
+<!-- =====================================================
+     STAGE 5
+====================================================== -->
+
+<section class="stage" id="stage5">
+
+
+    <div class="final">
+
+        <div class="final-heart">
+            ── ♥ ──
+        </div>
+
+
+        <h1>
+            Happy
+        </h1>
+
+
+        <h2>
+            Independence Day
+        </h2>
+
+
+        <div class="final-friend">
+            to my friend
+        </div>
+
+
+        <p>
+
+            May our beautiful nation always progress,
+            and may your life be filled with joy,
+            success and unforgettable moments.
+
+            <br><br>
+
+            May every dream you carry find its way
+            towards reality.
+
+            <br><br>
+
+            Keep smiling.
+            Keep shining.
+            Keep making beautiful memories.
+
+        </p>
+
+
+        <div class="jai">
+            Jai Hind! 🇮🇳
+        </div>
+
+    </div>
+
+
+    <button class="next-button" onclick="restart()">
+        WATCH AGAIN ↻
+    </button>
+
+</section>
+
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   CREATE COMPLETE 24-SPOKE ASHOKA CHAKRA
+====================================================== */
+
+function createChakra(container, spokeClass){
+
+    for(let i=0;i<24;i++){
+
+        const spoke =
+            document.createElement("div");
+
+        spoke.className =
+            spokeClass;
+
+        spoke.style.transform =
+            `translate(-50%,-100%) rotate(${i * 15}deg)`;
+
+        container.appendChild(spoke);
+
+    }
+
+}
+
+
+/* SMALL CHAKRA */
+
+createChakra(
+    document.getElementById("smallChakra"),
+    "spoke"
+);
+
+
+/* BIG CHAKRA */
+
+createChakra(
+    document.getElementById("bigChakra"),
+    "big-spoke"
+);
+
+
+
+/* =====================================================
+   STAGE SYSTEM
+====================================================== */
+
+let currentStage = 1;
+
+
+function nextStage(){
+
+    document
+        .getElementById(
+            "stage" + currentStage
+        )
+        .classList.remove("active");
+
+
+    currentStage++;
+
+
+    if(currentStage > 5){
+        currentStage = 5;
+    }
+
+
+    document
+        .getElementById(
+            "stage" + currentStage
+        )
+        .classList.add("active");
+
+
+    updateProgress();
+
+
+    if(currentStage === 4){
+
+        startFireworks();
+
+    }
+
+}
+
+
+
+function updateProgress(){
+
+    const numbers =
+        document.querySelectorAll(
+            ".progress-number"
+        );
+
+
+    numbers.forEach(
+        (number,index)=>{
+
+            number.classList.toggle(
+                "active",
+                index === currentStage - 1
+            );
+
+        }
+    );
+
+}
+
+
+
+function restart(){
+
+    document
+        .getElementById("stage5")
+        .classList.remove("active");
+
+
+    currentStage = 1;
+
+
+    document
+        .getElementById("stage1")
+        .classList.add("active");
+
+
+    updateProgress();
+
+}
+
+
+
+/* =====================================================
+   FIREWORKS
+====================================================== */
+
+const canvas =
+    document.getElementById("fireworks");
+
+const ctx =
+    canvas.getContext("2d");
+
+
+let rockets = [];
+let particles = [];
+let fireworksStarted = false;
+
+
+function resizeCanvas(){
+
+    canvas.width =
+        window.innerWidth;
+
+    canvas.height =
+        window.innerHeight;
+
+}
+
+
+resizeCanvas();
+
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+
+const fireworkColors = [
+
+    "#ff9933",
+    "#ffffff",
+    "#138808",
+    "#4da6ff"
+
+];
+
+
+function randomColor(){
+
+    return fireworkColors[
+        Math.floor(
+            Math.random() *
+            fireworkColors.length
+        )
+    ];
+
+}
+
+
+
+function launchRocket(){
+
+    rockets.push({
+
+        x:
+            Math.random() *
+            canvas.width,
+
+        y:
+            canvas.height,
+
+        target:
+            canvas.height *
+            (
+                .12 +
+                Math.random() * .42
+            ),
+
+        speed:8,
+
+        color:
+            randomColor()
+
+    });
+
+}
+
+
+
+function explode(x,y,color){
+
+    for(
+        let i=0;
+        i<80;
+        i++
+    ){
+
+        const angle =
+            Math.random() *
+            Math.PI *
+            2;
+
+
+        const speed =
+            Math.random() * 7 + 2;
+
+
+        particles.push({
+
+            x:x,
+
+            y:y,
+
+            vx:
+                Math.cos(angle) *
+                speed,
+
+            vy:
+                Math.sin(angle) *
+                speed,
+
+            life:100,
+
+            color:color,
+
+            size:
+                Math.random()*3+1
+
+        });
+
+    }
+
+}
+
+
+
+function animateFireworks(){
+
+    if(!fireworksStarted)
+        return;
+
+
+    ctx.fillStyle =
+        "rgba(2,6,13,.18)";
+
+
+    ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    /* ROCKETS */
+
+    rockets.forEach(
+        (rocket,index)=>{
+
+            rocket.y -=
+                rocket.speed;
+
+
+            ctx.beginPath();
+
+            ctx.arc(
+                rocket.x,
+                rocket.y,
+                3,
+                0,
+                Math.PI*2
+            );
+
+            ctx.fillStyle =
+                rocket.color;
+
+            ctx.fill();
+
+
+            if(
+                rocket.y <=
+                rocket.target
+            ){
+
+                explode(
+                    rocket.x,
+                    rocket.y,
+                    rocket.color
+                );
+
+
+                rockets.splice(
+                    index,
+                    1
+                );
+
+            }
+
+        }
+    );
+
+
+    /* PARTICLES */
+
+    particles.forEach(
+        (particle,index)=>{
+
+            particle.x +=
+                particle.vx;
+
+
+            particle.y +=
+                particle.vy;
+
+
+            particle.vy +=
+                .045;
+
+
+            particle.life -=
+                1.5;
+
+
+            ctx.globalAlpha =
+                particle.life / 100;
+
+
+            ctx.beginPath();
+
+            ctx.arc(
+                particle.x,
+                particle.y,
+                particle.size,
+                0,
+                Math.PI*2
+            );
+
+
+            ctx.fillStyle =
+                particle.color;
+
+
+            ctx.fill();
+
+
+            if(
+                particle.life <= 0
+            ){
+
+                particles.splice(
+                    index,
+                    1
+                );
+
+            }
+
+        }
+    );
+
+
+    ctx.globalAlpha = 1;
+
+
+    requestAnimationFrame(
+        animateFireworks
+    );
+
+}
+
+
+
+function startFireworks(){
+
+    if(fireworksStarted)
+        return;
+
+
+    fireworksStarted = true;
+
+
+    function launch(){
+
+        if(currentStage === 4){
+
+            launchRocket();
+
+        }
+
+
+        setTimeout(
+            launch,
+            450 +
+            Math.random()*800
+        );
+
+    }
+
+
+    launch();
+
+
+    animateFireworks();
+
+}
+
+
+
+/* =====================================================
+   FALLING TRICOLOR LEAVES
+====================================================== */
+
+for(
+    let i=0;
+    i<30;
+    i++
+){
+
+    const leaf =
+        document.createElement("div");
+
+
+    leaf.className =
+        "leaf";
+
+
+    leaf.style.left =
+        Math.random()*100 + "%";
+
+
+    leaf.style.animationDuration =
+        5 + Math.random()*8 + "s";
+
+
+    leaf.style.animationDelay =
+        Math.random()*8 + "s";
+
+
+    const colors = [
+
+        "#ff9933",
+        "#ffffff",
+        "#138808"
+
+    ];
+
+
+    leaf.style.background =
+        colors[
+            Math.floor(
+                Math.random()*3
+            )
+        ];
+
+
+    document
+        .getElementById("stage5")
+        .appendChild(leaf);
+
+}
+
+</script>
+
+</body>
+  </html>
